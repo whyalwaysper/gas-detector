@@ -1,32 +1,35 @@
-# Prerequisites
-*.d
+// C++ code
+//
+int counter;
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+int counter2;
 
-# Precompiled Headers
-*.gch
-*.pch
+void setup()
+{
+  pinMode(0, INPUT);
+  pinMode(5, OUTPUT);
+  pinMode(1, OUTPUT);
+}
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+void loop()
+{
+  if (digitalRead(0) == 1) {
+    for (counter = 0; counter < 3; ++counter) {
+      analogWrite(5, 225);
+      delay(300); // Wait for 300 millisecond(s)
+      analogWrite(5, 125);
+      delay(300); // Wait for 300 millisecond(s)
+      analogWrite(5, 0);
+      delay(300); // Wait for 300 millisecond(s)
+    }
+    for (counter2 = 0; counter2 < 10; ++counter2) {
+      tone(1, 523, 1000); // play tone 60 (C5 = 523 Hz)
+      delay(3000); // Wait for 3000 millisecond(s)
+      tone(1, 523, 1000); // play tone 60 (C5 = 523 Hz)
+      delay(3000); // Wait for 3000 millisecond(s)
+      tone(1, 523, 1000); // play tone 60 (C5 = 523 Hz)
+      delay(3000); // Wait for 3000 millisecond(s)
+    }
+  } else {
+  }
+}
